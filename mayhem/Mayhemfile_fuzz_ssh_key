@@ -1,0 +1,10 @@
+project: savantenvs/guacamole-server
+target: fuzz_ssh_key
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_ssh_key/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/bin/fuzz_ssh_key
+    libfuzzer: true
+    timeout: 2
+    dictionary: /mayhem/mayhem/fuzz_ssh_key/fuzz_ssh_key.dict

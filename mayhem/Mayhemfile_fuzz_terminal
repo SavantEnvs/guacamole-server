@@ -1,0 +1,10 @@
+project: savantenvs/guacamole-server
+target: fuzz_terminal
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_terminal/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/bin/fuzz_terminal
+    libfuzzer: true
+    timeout: 10
+    dictionary: /mayhem/mayhem/fuzz_terminal/fuzz_terminal.dict

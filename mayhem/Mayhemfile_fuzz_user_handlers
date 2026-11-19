@@ -1,0 +1,10 @@
+project: savantenvs/guacamole-server
+target: fuzz_user_handlers
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_user_handlers/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/bin/fuzz_user_handlers
+    libfuzzer: true
+    timeout: 2
+    dictionary: /mayhem/mayhem/fuzz_user_handlers/fuzz_user_handlers.dict

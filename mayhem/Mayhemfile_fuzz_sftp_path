@@ -1,0 +1,10 @@
+project: savantenvs/guacamole-server
+target: fuzz_sftp_path
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_sftp_path/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/bin/fuzz_sftp_path
+    libfuzzer: true
+    timeout: 2
+    dictionary: /mayhem/mayhem/fuzz_sftp_path/fuzz_sftp_path.dict

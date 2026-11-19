@@ -1,0 +1,10 @@
+project: savantenvs/guacamole-server
+target: fuzz_parser
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_parser/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/bin/fuzz_parser
+    libfuzzer: true
+    timeout: 2
+    dictionary: /mayhem/mayhem/fuzz_parser/fuzz_parser.dict

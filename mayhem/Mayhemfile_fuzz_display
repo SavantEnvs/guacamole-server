@@ -1,0 +1,9 @@
+project: savantenvs/guacamole-server
+target: fuzz_display
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_display/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/bin/fuzz_display
+    libfuzzer: true
+    timeout: 10

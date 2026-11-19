@@ -1,0 +1,10 @@
+project: savantenvs/guacamole-server
+target: fuzz_guacd_conf
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_guacd_conf/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/bin/fuzz_guacd_conf
+    libfuzzer: true
+    timeout: 2
+    dictionary: /mayhem/mayhem/fuzz_guacd_conf/fuzz_guacd_conf.dict

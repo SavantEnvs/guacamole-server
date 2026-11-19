@@ -1,0 +1,10 @@
+project: savantenvs/guacamole-server
+target: fuzz_color_scheme
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_color_scheme/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/bin/fuzz_color_scheme
+    libfuzzer: true
+    timeout: 2
+    dictionary: /mayhem/mayhem/fuzz_color_scheme/fuzz_color_scheme.dict
